@@ -43,7 +43,7 @@ class NiDaq(Instrument):
         self.max_val = max_val
         self.task = None
 
-    def initialize(self):
+    def initialize(self) -> None:
         """
         Initialize the NI DAQ task and configure the analog input channel.
 
@@ -83,7 +83,7 @@ class NiDaq(Instrument):
         )
         print(f"{self.name} initialized on channel {self.channel}")
 
-    def read(self, number_of_samples=None):
+    def read(self, number_of_samples: int = None) -> list:
         """
         Read data from the NI DAQ device.
 
@@ -125,7 +125,7 @@ class NiDaq(Instrument):
         """
         raise NotImplementedError("Write operation is not supported for NI DAQ analog input.")
 
-    def shutdown(self):
+    def shutdown(self) -> None:
         """
         Properly close the NI DAQ task.
         """

@@ -1,7 +1,7 @@
 import re
 from nidaqmx import Task, system
 from nidaqmx.constants import AcquisitionType
-from ..base import Instrument
+from InstruHub.instrument.base import Instrument
 
 
 class NiDaq(Instrument):
@@ -26,8 +26,15 @@ class NiDaq(Instrument):
         Optional configuration dictionary, by default None.
     """
 
-    def __init__(self, name, channel="Dev1/ai0", sample_rate=1000, samples_per_channel=1000,
-                 min_val=-10.0, max_val=10.0, config=None):
+    def __init__(self,
+        name,
+        channel="Dev1/ai0",
+        sample_rate=1000,
+        samples_per_channel=1000,
+        min_val=-10.0,
+        max_val=10.0,
+        config=None
+    ):
         super().__init__(name, config)
         self.channel = channel
         self.sample_rate = sample_rate
